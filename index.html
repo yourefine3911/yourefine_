@@ -42,20 +42,32 @@
   var audio = document.getElementById('lagu');
   var teks = document.getElementById('lirik');
   var lirik = [
-    [26, "Dimana kan kusimpan\nSemua harapan ini\nDi saat kutemui\nJalan yang tak bertepi"],
-    [51, "Seiring redup hati\nSelimuti senyummu\nTak mampu ku bergerak\nDi sudut sempit ini"],
-    [77, "Jadilah pelita di kala\nRedup hatimu\nDi saat tak mampu\nlagi diriku terangi"],
-    [95, "Gelapmu seperti dulu\nTeruslah melangkah\nWalau kini ku tak berjalan\nDisampingmu"],
+    [26, "Dimana kan kusimpan\nSemua harapan ini"],
+    [38, "Di saat kutemui\nJalan yang tak bertepi"],
+    [51, "Seiring redup hati\nSelimuti senyummu"],
+    [64, "Tak mampu ku bergerak\nDi sudut sempit ini"],
+    [77, "Jadilah pelita di kala\nRedup hatimu"],
+    [86, "Di saat tak mampu\nlagi diriku terangi"],
+    [95, "Gelapmu seperti dulu\nTeruslah melangkah"],
+    [105, "Walau kini ku tak berjalan\nDisampingmu"],
     [116, "Hingga kau pun berlabuh\nDi akhir ujung jalanmu"],
-    [123, "Sampai nanti\nKelak esok kan kembali\nIni tentang kita\nTentang bagaimana\nCara kita mampu"],
+    [123, "Sampai nanti\nKelak esok kan kembali"],
+    [131, "Ini tentang kita\nTentang bagaimana"],
+    [138, "Cara kita mampu"],
     [144, "Melangkah tanpa\nAlasan yang sama"],
-    [148, "Dan sadari\nKini nafasmu pun\nTak seirama denyut nadiku\nAmat dalam kuterjatuh"],
+    [148, "Dan sadari\nKini nafasmu pun"],
+    [158, "Tak seirama denyut nadiku\nAmat dalam kuterjatuh"],
     [168, "Hingga kau pun berlabuh\nDi akhir ujung jalanmu"],
-    [199, "Pahami setiap langkah\nDari waktu yang t'lah tersisa\nAkan berjuta kata tak bermakna"],
-    [211, "Bungkam semua ambisi\nWalaupun kini ku tak lagi\nMenemani kelam ini"],
-    [244, "Sampai nanti\nKelak esok kan kembali\nIni tentang kita\nTentang bagaimana\nCara kita mampu"],
+    [199, "Pahami setiap langkah\nDari waktu yang t'lah tersisa"],
+    [205, "Akan berjuta kata tak bermakna"],
+    [211, "Bungkam semua ambisi\nWalaupun kini ku tak lagi"],
+    [218, "Menemani kelam ini"],
+    [244, "Sampai nanti\nKelak esok kan kembali"],
+    [252, "Ini tentang kita\nTentang bagaimana"],
+    [259, "Cara kita mampu"],
     [265, "melangkah tanpa\nAlasan yang sama"],
-    [269, "Dan sadari\nKini nafasmu pun\nTak seirama denyut nadiku\nAmat dalam kuterjatuh"],
+    [269, "Dan sadari\nKini nafasmu pun"],
+    [278, "Tak seirama denyut nadiku\nAmat dalam kuterjatuh"],
     [288, "Hingga kau pun berlabuh\nDi akhir ujung jalanmu"],
     [300, "TERIMAKASIH"]
   ];
@@ -64,7 +76,6 @@
   var ketikInterval = null;
 
   function ketikPerHuruf(teksLengkap){
-    // Berhentiin ketikan lama kalo ada
     if(ketikInterval) clearInterval(ketikInterval);
     var i = 0;
     teks.innerText = "";
@@ -75,7 +86,7 @@
       } else {
         clearInterval(ketikInterval);
       }
-    }, 35); // 35ms per huruf, makin kecil makin cepet
+    }, 60);
   }
 
   function playLagu(){
@@ -90,11 +101,8 @@
     for(var i=0;i<lirik.length;i++){ if(t >= lirik[i][0]) index = i; }
     if(index !== lirikSekarang){
       lirikSekarang = index;
-      if(index === -1){
-        teks.innerText = "";
-      } else {
-        ketikPerHuruf(lirik[index][1]);
-      }
+      if(index === -1){ teks.innerText = ""; }
+      else { ketikPerHuruf(lirik[index][1]); }
     }
   }
 </script>
